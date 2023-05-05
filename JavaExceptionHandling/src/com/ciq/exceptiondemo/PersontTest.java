@@ -15,7 +15,7 @@ public class PersontTest {
 		return persons;
 	}
 
-	public static void getPersonById(int id) {
+	public static void getPersonById(int id) throws PersonNotFoundException {
 		Person p5 = new Person();
 		System.out.println(p5);
 		Person p1 = new Person(1, "vinay");
@@ -31,18 +31,25 @@ public class PersontTest {
 			}
 		}
 		if (result == null) {
-			throw new NullPointerException("person not found exception");
+//			throw new NullPointerException("person not found exception");
+			throw new PersonNotFoundException("person not found exception");
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws PersonNotFoundException {
 		// pre conditions
 //		if (getAllPersons() != null) {
 //			getAllPersons();
 //		} else {
 //			System.out.println(" no persons");
 //		}
-		
+
 		getPersonById(100);
+//			try {
+//				getPersonById(100);
+//			} catch (PersonNotFoundException e) {
+//				e.printStackTrace();
+//			}
+
 	}
 }
